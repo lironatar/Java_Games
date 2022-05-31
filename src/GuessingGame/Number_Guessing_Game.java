@@ -3,7 +3,7 @@ package GuessingGame;
 import java.util.Random;
 import java.util.Scanner;
 
-public class theGame {
+public class Number_Guessing_Game {
     public static void main() {
         Random rand = new Random();
         Scanner scanner = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class theGame {
             System.out.println("You have " + playerTries + " tries left");
 
         }
-        if(hasGameEnded == false) System.out.println("The Number was "+
+        if(!hasGameEnded) System.out.println("The Number was "+
                 randomNumber+" ...Sorry, Good luck next time :)");
     }
 }

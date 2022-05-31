@@ -1,5 +1,5 @@
 package Gui;
-import GuessingGame.theGame;
+import GuessingGame.Number_Guessing_Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,7 +40,7 @@ public class mainFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         count++;
         label.setText("Number of clicks: "+ count);
-        theGame firstGame = new theGame();
+        Number_Guessing_Game firstGame = new Number_Guessing_Game();
         firstGame.main();
     }
 }

@@ -42,25 +42,34 @@ public class String_Guessing_Game {
         for (int i = 0; i < word.length(); i++) {
             myChars[i] = ' ';
         }
+        HashMap<Character, Boolean> hashKeyVal = new HashMap<>();
         System.out.println(Arrays.toString(myChars));
         int counter = 0;
         System.out.println("Enter a guess");
         boolean isCorrect = false;
-        String alreadyUsedChar=null;
+
         while (userRemainingTries >= 1) {
             if (counter == word.length()) {
                 break;
             }
-
+            System.out.println("letters used: " +hashKeyVal.keySet());
             char ch= isValidInput();
+            // Will check if user put the same char again
             String stringChar ="";
-            for (int i = 0; i < word.length(); i++) {
-                if (word.charAt(i) == ch) {
-                    myChars[i] = ch;
-                    isCorrect = true;
-                    counter++;
+            if(!hashKeyVal.containsKey(ch)) {
+                for (int i = 0; i < word.length(); i++) {
+                    if (word.charAt(i) == ch) {
+                        myChars[i] = ch;
+                        isCorrect = true;
+                        counter++;
+                    }
                 }
+            }else{
+                isCorrect= true;
+
+                System.out.println("You have already entered this letter, Try another one ");
             }
+            hashKeyVal.put(ch,isCorrect);
             System.out.println(Arrays.toString(myChars));
             if (!isCorrect) {
                 userRemainingTries--;

@@ -19,15 +19,16 @@ public class String_Guessing_Game {
             }
         }
         switch (difficulty) {
-            case 1 -> file = "C:/Users/לירון/IdeaProjects/5_Mini_Java_Games/src/HangmanGame/3k_words.txt";
-            case 2 -> file = "C:/Users/לירון/IdeaProjects/5_Mini_Java_Games/src/HangmanGame/10k_words.txt";
-            case 3 -> file = "C:/Users/לירון/IdeaProjects/5_Mini_Java_Games/src/HangmanGame/30k_words.txt";
+            case 1 -> file = "./src/HangmanGame/3k_words.txt";
+            case 2 -> file = "./src/HangmanGame/10k_words.txt";
+            case 3 -> file = "./src/HangmanGame/30k_words.txt";
             default -> {
             }
         }
 
         List<String> words = new ArrayList<>();
-        Scanner scanner = new Scanner(new File(file));
+        File directory = new File(file);
+        Scanner scanner = new Scanner(new File(directory.getAbsolutePath()));
         while (scanner.hasNext()) {
             words.add(scanner.nextLine());
         }
